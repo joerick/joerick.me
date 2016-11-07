@@ -125,7 +125,8 @@ section: home
     </div>
 
     <div class="work-cards" data-equalizer data-equalize-on="medium">
-        {% for card in site.work %}
+        {% assign cards = site.work | sort: 'date' %}
+        {% for card in cards reversed %}
             <div class="work-card-wrapper">
                 <a class="no-style" href="{{ card.url | prepend: site.baseurl }}">
                     <div class="work-card">
