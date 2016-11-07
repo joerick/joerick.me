@@ -1,0 +1,70 @@
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+}
+
+a.no-style {
+    color: inherit;
+}
+
+.margins {
+    max-width: 1200px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 128px;
+    background-color: #f8f8f8;
+    padding: 0 30px;
+    font-size: 20px;
+    margin-bottom: 44px;
+}
+
+.header-items {
+    text-align: right;
+}
+
+.header-item {
+    display: inline-block;
+    font-weight: 700;
+    color: #333;
+    line-height: 34px;
+    margin: 46px 20px;
+}
+
+.header-item.active {
+    border-bottom: 3px solid currentColor;
+}
+
+.footer {
+    height: 100px;
+    background-color: #f8f8f8;
+    margin-top: 80px;
+}
+
+/*******
+* WORK *
+*******/
+
+.work-title {
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.work-sidebar {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.work-description {
+    margin-bottom: 15px;
+}
+
