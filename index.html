@@ -112,7 +112,7 @@ section: home
         Check out some of my recent work below.
     </div>
 
-    <div class="work-cards">
+    <div class="work-cards" data-equalizer data-equalize-on="medium">
         {% for card in site.work %}
             <div class="work-card-wrapper">
                 <a class="no-style" href="{{ card.url | prepend: site.baseurl }}">
@@ -125,7 +125,7 @@ section: home
                             <div class="work-card-technology">
                                 {{card.technology}}
                             </div>
-                            <div class="work-card-description">
+                            <div class="work-card-description" data-equalizer-watch>
                                 {{card.description}}
                             </div>
                             <span class="work-card-more-link">
