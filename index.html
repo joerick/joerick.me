@@ -12,11 +12,20 @@ section: home
     }
     .hero {
         background-color: #eee;
-        height: 550px;
+        height: 500px;
         margin-bottom: 25px;
+        position: relative;
+        z-index: -1;
+    }
+    .hero-overlay {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        padding: 0 58px;
     }
     .hero-text {
         font-weight: 700;
+        color: #222;
+        text-shadow: 0 0 100px white;
     }
     .lead {
         font-size: 20px;
@@ -96,14 +105,17 @@ section: home
 </style>
 
 <div class="hero">
-    <div class="margins">
-    <div class="spacer" style="height: 170px"></div>
-        <h1 class="hero-text">
-            Hi, I'm Joe.
-            <br>
-            I'm a Mac and iOS developer <br>
-            based in London, UK.
-        </h1>
+    {% include terrainanimation.html %}
+    <div class="hero-overlay">
+        <div class="margins">
+            <div class="spacer" style="height: 140px"></div>
+            <h1 class="hero-text">
+                Hi, I'm Joe.
+                <br>
+                I'm a Mac and iOS developer <br>
+                based in London, UK.
+            </h1>
+        </div>
     </div>
 </div>
 
