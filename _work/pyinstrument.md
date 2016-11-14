@@ -6,6 +6,10 @@ technology: Python
 date: Apr 2014
 date_range: Apr 2014 - Ongoing
 image: /img/pyinstrument/screenshot.jpg
+links:
+- name: Github
+  icon: github
+  url: http://github.com/joerick/pyinstrument
 ---
 
 ![]({{page.image}})

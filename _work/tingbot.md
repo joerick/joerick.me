@@ -11,6 +11,9 @@ links:
 - name: tingbot.com
   icon: globe
   url: http://tingbot.com/
+- name: Documentation
+  icon: book
+  url: http://docs.tingbot.com/
 - name: Github
   icon: github
   url: http://github.com/tingbot/

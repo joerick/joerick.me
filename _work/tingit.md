@@ -7,7 +7,10 @@ technology: Django, Python, Web
 date: Jan 2013
 date_range: Jan 2013 - Sept 2014
 image: /img/tingit/elly.jpg
-link: http://ting.it/
+links: 
+- name: ting.it
+  icon: globe
+  url: http://ting.it/
 ---
 
 ![]({{page.image}})
