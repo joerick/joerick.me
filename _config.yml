@@ -23,6 +23,11 @@ twitter_username: joerick
 github_username:  joerick
 
 markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
 collections:
   work:
     output: true

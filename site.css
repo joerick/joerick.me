@@ -1,3 +1,6 @@
+/*********
+* GLOBAL *
+*********/
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -9,13 +12,46 @@ h1, h2, h3, h4, h5, h6 {
     font-family: inherit;
 }
 
+a {
+    color: rgb(12, 156, 247);
+}
+
+a:hover {
+    color: rgb(0, 127, 208);
+}
+
+a:active {
+    color: rgb(0, 50, 100);
+}
+
 a.no-style {
     color: inherit;
 }
 
+pre > code {
+    display: block;
+    border-radius: 3px;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+
+    font-family: Monaco, Consolas, Liberation Mono, Courier, monospace;
+    font-size: 12px;
+    color: inherit;
+    font-weight: inherit;
+    -webkit-font-smoothing: auto;
+}
+
+/*********
+* COMMON *
+*********/
+
 .margins {
     max-width: 1200px;
-    padding: 0 10px;
+    padding: 0 20px;
+    padding: 0 3vw;
     margin: 0 auto;
 }
 
@@ -37,6 +73,14 @@ a.no-style {
     color: #333;
     line-height: 34px;
     margin: 46px 20px;
+}
+
+.header-item:hover {
+    color: rgb(12, 156, 247)
+}
+
+.header-item:active {
+    color: rgb(0, 127, 208);
 }
 
 .header-item.active {
@@ -68,3 +112,29 @@ a.no-style {
     margin-bottom: 15px;
 }
 
+.work-links {
+    margin-top: 15px;
+}
+
+.work-content img {
+    margin-bottom: 6px;
+}
+
+.work-content video.gfy-video {
+    margin-bottom: 12px;
+}
+
+/***************
+* FONT AWESOME *
+***************/
+
+/* Keep the async icon loads from interfering with the page layout */
+
+.fa-fw {
+  display: inline-block;
+  width: 1.28571429em;
+}
+
+.fa-fw::before {
+  content: "\00a0";
+}

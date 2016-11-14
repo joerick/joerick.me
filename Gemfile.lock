@@ -45,6 +45,10 @@ PLATFORMS
 DEPENDENCIES
   jekyll (= 3.3.0)
   jekyll-seo-tag (= 2.1.0)
+  rouge (= 1.11.1)
+
+RUBY VERSION
+   ruby 2.0.0p648
 
 BUNDLED WITH
-   1.10.6
+   1.13.6

@@ -14,4 +14,6 @@ link: http://ting.it/
 
 Ting.it is a site that lets users create short movies or stop motion animations with their webcams. It was created to enable more emotional connection over social media, as a way of bridging the gap when using a service like Twitter.
 
-The site was built as a Django app, and had a fairly large JS frontend, especially for the ‘capture’ page. I was the sole developer on the site, and worked very closely with designers Ben Pawle and Ken Smeed.
+The site was built as a **Django** app, and had a fairly large **JavaScript** frontend, especially for the ‘capture’ page. I was the sole developer on the site, and worked very closely with designers Ben Pawle and Ken Smeed.
+
+After launching the site our focus on the project turned to [Tingbot](/work/tingbot/), which was originally conceved as a device for viewing Tings!

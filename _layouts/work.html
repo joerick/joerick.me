@@ -21,11 +21,24 @@ layout: default
                         <strong>Date:</strong> {{page.date_range}}
                     </div>
                 </div>
-                
+                <div class="work-links">
+                    {% for link in page.links %}
+                        <div class="work-link">
+                            <a href="{{link.url}}">
+                                {% if link.icon %}
+                                    <i class="fa fa-fw fa-{{link.icon}}" aria-hidden="true"></i>
+                                {% endif %}
+                                {{link.name}}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="large-8 columns">
-            {{ content }}
+            <div class="work-content">
+                {{ content }}
+            </div>
         </div>
     </div>
 </div>
