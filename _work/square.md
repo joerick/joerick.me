@@ -15,8 +15,8 @@ The Square [i] system is a premium hotel TV solution - with the standard feature
 
 The technology of this project is particularly interesting. This was a v2.0 ground-up rewrite, mainly because v1.0 had stability issues caused by the video decoder. This led to a two-process design - a backend, holding all the state of the system, communicating with a stateless UI process via unidirectional JSON messages. The UI process presented content to the screen using CoreAnimation, so all graphics were GPU accelerated and ran at 1080p, 60fps.
 
-<div style='position:relative;padding-bottom:57%'><iframe src='https://gfycat.com/ifr/DenseAstonishingBullmastiff' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>
+<div class='gfyitem' data-id='DenseAstonishingBullmastiff'></div>
 
 ---
 
-I was part of this project through the whole development cycle. I was involved with the UI design, UI implementation in Objective-C, integration of the VLC video player, and implementation of the backend. I also wrote a CMS in Django for hotel management to customise the system, or adapt the branding and content for conferences.
+I was part of this project through the 2 year development cycle. I was involved with the UI design, UI implementation in Objective-C, integration of the VLC video player, and implementation of the backend. I also wrote a CMS in Django for hotel management to customise the system, or adapt the branding and content for conferences.
