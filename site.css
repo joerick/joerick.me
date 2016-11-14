@@ -87,6 +87,21 @@ pre > code {
     border-bottom: 3px solid currentColor;
 }
 
+@media screen and (max-width: 39.9375em) {
+    .header {
+        height: 60px;
+        padding: 0;
+        font-size: 12px;
+        font-size: 4.5vw;
+        margin-bottom: 24px;
+    }
+    .header-item {
+        margin: 16px 12px;
+        line-height: 26px;
+        margin-bottom: 12px;
+    }
+}
+
 .footer {
     height: 100px;
     background-color: #f8f8f8;
