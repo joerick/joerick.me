@@ -130,6 +130,11 @@ pre > code {
     margin-top: 15px;
 }
 
+.work-link {
+    margin-bottom: 2px;
+    margin-left: -2px;
+}
+
 .work-content img {
     margin-bottom: 6px;
 }
