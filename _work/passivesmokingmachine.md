@@ -2,8 +2,8 @@
 title: Passive smoking machine
 description: An Arduino-based coughing cigarette bin
 client: Art project
-technology: Arduino, electronics
-date: Sept 2014
+technology: Electronics, Arduino
+date: Sept 2013
 date_range: Sept 2014
 image: /img/passivesmokingmachine/outside.jpg
 ---
