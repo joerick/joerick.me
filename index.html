@@ -97,6 +97,18 @@ section: home
         color: #888;
         margin-bottom: 15px;
     }
+    .work-card-platform {
+        background-color: #282;
+        color: white;
+        padding: 0px 5px;
+        /*border-radius: 3px;*/
+        /*border-bottom: 1px solid #161;*/
+        /*border-top: 1px solid #7c7;*/
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+        font-size: 0.95em;
+    }
     .work-card-description {
         margin-bottom: 20px;
     }
@@ -145,6 +157,9 @@ section: home
                                 {{ card.title | escape }}
                             </div>
                             <div class="work-card-technology">
+                                {% if card.platform %}
+                                    <span class="work-card-platform {{card.platform|downcase}}">{{card.platform}}</span>
+                                {% endif %}
                                 {{card.technology}}
                             </div>
                             <div class="work-card-description" data-equalizer-watch>
