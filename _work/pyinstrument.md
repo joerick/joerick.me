@@ -2,7 +2,7 @@
 title: Pyinstrument
 description: A Python call-stack profiler for performance debugging
 client: Open source
-technology: Python
+platform: Python
 date: Apr 2014
 date_range: Apr 2014 - Ongoing
 image: /img/pyinstrument/screenshot.jpg

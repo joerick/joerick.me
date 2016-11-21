@@ -3,7 +3,8 @@ layout: work
 title: Mixim
 description: "A collaboration tool for music: sync projects 10x faster than Dropbox"
 client: Self-led
-technology: Mac, Objective-C, Django, Python, Heroku, S3
+platform: Mac
+technology: Objective-C, Django, Python, Heroku, S3
 date: Sept 2016
 date_range: Feb 2014 - Ongoing
 image: /img/mixim/hero.jpg

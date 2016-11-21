@@ -3,7 +3,8 @@ layout: work
 title: BT Sport Traffic database
 description: A live TV workflow application for BT Sport, to coordinate 24 hour broadcast
 client: BT Sport
-technology: Web, Django, Python, Heroku
+platform: Web
+technology: Django, Python, Heroku
 date: Mar 2015
 date_range: Aug 2013 - Mar 2015
 image: /img/btsport/deliveryschedule.png

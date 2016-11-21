@@ -3,7 +3,8 @@ layout: work
 title: Tide
 description: The Python IDE for Tingbot
 client: Tingbot
-technology: Javascript, Electron, Python, Mac, Windows
+platform: Electron
+technology: Javascript, Python, Mac, Windows
 date: Jan 2016
 date_range: Feb 2016 - Ongoing
 image: /img/tide/tide-and-simulator.png

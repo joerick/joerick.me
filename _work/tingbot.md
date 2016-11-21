@@ -3,7 +3,8 @@ layout: work
 title: Tingbot
 description: A fully-integrated app platform for Raspberry Pi
 client: Side project with NORD collective
-technology: Linux, Raspberry Pi, Python
+platform: Linux
+technology: Raspberry Pi, Python
 date: Jan 2016
 date_range: Sept 2014 - Ongoing
 image: /img/tingbot/tingbot-on-blue.jpg

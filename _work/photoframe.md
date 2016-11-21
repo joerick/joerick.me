@@ -2,7 +2,8 @@
 title: A digital photo frame
 description: The hardware and software design for a digital photo frame with output over DVI
 client: Final year university project
-technology: Electronics, PCB design, C++, embedded Linux
+platform: Electronics
+technology: PCB design, C++, embedded Linux
 date: May 2010
 date_range: Sept 2009 - May 2010
 image: /img/photoframe/uiscreenshot.jpg

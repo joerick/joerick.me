@@ -3,7 +3,8 @@ layout: work
 title: Ting.it
 description: A GIF creation and sharing site, for more personal communication online
 client: Side project with NORD collective
-technology: Web, Django, Python
+platform: Web
+technology: Django, Python
 date: Jan 2013
 date_range: Jan 2013 - Sept 2014
 image: /img/tingit/elly.jpg
