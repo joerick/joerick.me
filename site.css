@@ -3,13 +3,30 @@
 *********/
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', sans-serif;
     font-size: 16px;
     color: #333;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: inherit;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 35px;
+    font-weight: 400;
+}
+
+h3 {
+    font-size: 29px;
+    font-weight: 400;
 }
 
 a {
@@ -28,6 +45,15 @@ a.no-style {
     color: inherit;
 }
 
+code {
+    font-family: Monaco, Consolas, Liberation Mono, Courier, monospace;
+    font-size: 0.8em;
+    background-color: #f3f3f3;
+    border-color: #e3e3e3;
+    border-width: 0;
+    color: inherit;
+}
+
 pre > code {
     display: block;
     border-radius: 3px;
@@ -42,6 +68,18 @@ pre > code {
     color: inherit;
     font-weight: inherit;
     -webkit-font-smoothing: auto;
+}
+
+/* for markdown captions. See http://stackoverflow.com/a/30366422/382749 */
+img + em {
+    font-size: 0.7em;
+    color: #a5a5a5;
+    text-align: center;
+    display: block;
+}
+
+p img:first-child {
+    margin-top: 6px;
 }
 
 /*********
@@ -141,6 +179,22 @@ pre > code {
 
 .work-content video.gfy-video {
     margin-bottom: 12px;
+}
+
+/********
+* POSTS *
+********/
+
+.post img {
+    margin-bottom: 6px;
+}
+
+.post video.gfy-video {
+    margin-bottom: 12px;
+}
+
+p + h1, p + h2, p + h3, p + h4, p + h5, p + h6 {
+    margin-top: 1rem;
 }
 
 /***************
