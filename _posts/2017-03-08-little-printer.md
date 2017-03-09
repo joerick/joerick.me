@@ -58,7 +58,7 @@ Once you're there, you've got ssh access to the bridge. Reassemble and connect y
 
 The next step is to install the upgraded bridge firmware. Download the [berg-bridge-dump](https://github.com/kpeeem/berg-bridge-dump) from github ([zip](https://github.com/kpeeem/berg-bridge-dump/archive/master.zip)). Thanks [@kpeeem](https://github.com/kpeeem)!
 
-> After each boot, you need to ssh and do `mount -o remount,rw /`.
+Remember, after each reboot, you need to ssh and do `mount -o remount,rw /`.
 
 Using your SFTP program, copy over `/usr/bin/oneshot_bergcloud_bridge.sh`, replacing the existing one. You should also make one alteration - remove the line `/sbin/reboot -f` from the bottom of this script. I don’t want the bridge stuck in a reboot-loop should something go wrong.
 
