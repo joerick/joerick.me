@@ -22,6 +22,16 @@ url: "http://joerick.me" # the base hostname & protocol for your site
 twitter_username: joerick
 github_username:  joerick
 
+twitter:
+  username: joerick
+
+social:
+  name: Joe Rickerby
+  links:
+    - https://twitter.com/joerick
+    - https://www.linkedin.com/in/joerick
+    - https://github.com/joerick
+
 markdown: kramdown
 highlighter: rouge
 kramdown:

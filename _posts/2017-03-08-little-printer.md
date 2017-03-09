@@ -3,6 +3,9 @@ layout: post
 title: "Getting Little Printer online"
 date: 2017-03-09 14:14:00
 categories: hardware
+image: /img/lilprinter/marketing.jpg
+description: >
+  All is not lost. Thanks to three serial pins on the bridge, we can get access again. My printer is now happily hooked up to Matt Webb's alpha.littleprinter.com backend.
 ---
 
 ![](/img/lilprinter/marketing.jpg)
@@ -13,7 +16,7 @@ It's a really nice product, but BERG – the company behind it – is sadly no m
 
 Matt Webb [@genmon](//twitter.com/genmon), (BERG's ex-CEO) has done some great work rebuilding some of the infra in open source, but the devices are still hard-coded to point bergcloud.com servers. For a while, Matt was [manually pushing updates](https://github.com/genmon/sirius/issues/8) to the bridges, but now the update server's down as well!
 
-But all is not lost. Thanks to three serial pins on the bridge, we can get access again. My printer is now happily hooked up to Matt Webb's [//alpha.littleprinter.com](//alpha.littleprinter.com) site. 
+But all is not lost. Thanks to three serial pins on the bridge, we can get access again. My printer is now happily hooked up to Matt Webb's [//alpha.littleprinter.com](//alpha.littleprinter.com) backend. 
 
 ## Here's how I did it
 
