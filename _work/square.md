@@ -1,10 +1,10 @@
 ---
 layout: work
 title: Square [i]
-description: A Mac-based hotel TV system, providing a standard lean-back interface alongside the ability for the guest to browse the web or use Mac apps.
+description: A Mac-based hotel TV system, providing broadcast TV, VoD, and the ability to browse the web or use Mac apps.
 client: Square [i] International (now RoomNetTV)
 platform: Mac
-technology: Cocoa, CoreAnimation, Objective-C, Smalltalk, Django
+technology: CoreAnimation, Objective-C, Smalltalk, Django
 date: feb 2012
 date_range: Feb 2012 - Feb 2014
 image: /img/square/in-hotel-room.jpg
