@@ -4,10 +4,16 @@ title: "Launching Pyinstrument 2.0"
 date: 2017-12-15 16:16:00
 categories: open-source
 description: >
-  Today I’m launching pyinstrument 2.0. This update brings a few improvements, mostly by changing the underlying technology.
+  Today I’m launching Pyinstrument 2.0. This update brings a few improvements, mostly by changing the underlying technology.
 ---
 
-Today I’m launching pyinstrument 2.0. Pyinstrument was my first open-source library to have widespread usage, so it’s very dear to my heart.
+Today I’m launching Pyinstrument 2.0. Pyinstrument was my first open-source library to have widespread usage, so it’s very dear to my heart.
+
+---
+
+Pyinstrument tells you which sections of code are making your software slow. It does this by observing your program's execution and then presenting a report that highlights the slow parts. [Check it out on Github](https://github.com/joerick/pyinstrument).
+
+---
 
 This update brings a few improvements, mostly by changing the underlying technology.
 
@@ -48,6 +54,6 @@ A few more things in this release:
 - The internals have been refactored to allow different recorders. The first alternate recorder is a 'timeline' recorder, allowing linear recording of program execution, for other outputs like flame charts.
 - Renderers are now also modular and swappable. This cleanly factors the console and HTML outputs, but allows expansion to more outputs in the future, like a JSON output (and flame :))
 
-So if you're in the Python performance game, hit up [github.com/joerick/pyinstrument](https://github.com/joerick/pyinstrument) and let me know what you think of the new version!
+So if you're in the Python performance game, `pip install pyinstrument` or hit up [github.com/joerick/pyinstrument](https://github.com/joerick/pyinstrument) and let me know what you think of the new version!
 
 [^1]:   This is especially a problem for Django, where the runserver command runs on a different thread.
