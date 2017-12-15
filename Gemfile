@@ -12,6 +12,7 @@ ruby RUBY_VERSION
 gem "jekyll", "3.3.0"
 gem "jekyll-seo-tag", "2.1.0"
 gem "rouge", "1.11.1"
+gem 'jekyll-redirect-from', "0.12.1"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.

@@ -7,4 +7,4 @@ cd "$(dirname "$0")"
     open http://localhost:4000
 ) &
 
-jekyll serve
+bundle exec jekyll serve

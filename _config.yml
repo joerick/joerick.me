@@ -38,6 +38,8 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
+permalink: /posts/:year/:month/:day/:title/
+
 collections:
   work:
     output: true
@@ -53,3 +55,4 @@ defaults:
 
 gems:
   - jekyll-seo-tag
+  - jekyll-redirect-from

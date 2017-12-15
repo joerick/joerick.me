@@ -4,6 +4,7 @@ title: "Getting Little Printer online"
 date: 2017-03-09 14:14:00
 categories: hardware
 image: /img/lilprinter/marketing.jpg
+redirect_from: /hardware/2017/03/09/little-printer
 description: >
   All is not lost. Thanks to three serial pins on the bridge, we can get access again. My printer is now happily hooked up to Matt Webb's alpha.littleprinter.com backend.
 ---
