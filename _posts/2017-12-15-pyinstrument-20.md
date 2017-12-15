@@ -13,6 +13,8 @@ Today I’m launching Pyinstrument 2.0. Pyinstrument was my first open-source li
 
 Pyinstrument tells you which sections of code are making your software slow. It does this by observing your program's execution and then presenting a report that highlights the slow parts. [Check it out on Github](https://github.com/joerick/pyinstrument).
 
+![](/img/pyinstrument-vs-cprofile.png)
+
 ---
 
 This update brings a few improvements, mostly by changing the underlying technology.
