@@ -31,7 +31,7 @@ Lurking in the Python C API is the function `PyEval_SetProfile` which is the hoo
 
 By combining the technique used in pyinstrument 1.0’s ‘setprofile' mode with this `PyEval_SetProfile` call in a C extension we have a pretty neat solution!
 
-![](DraggedImage.png)
+![](/img/pyinstrument-profile.png)
 
 As far as Python’s concerned, it works exactly the same as cProfile, so there are no more problems with signals. What’s more, it’s still really fast - half the overhead of cProfile, while getting the benefits of recording the entire stack.
 
