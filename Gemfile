@@ -9,7 +9,7 @@ ruby RUBY_VERSION
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "3.3.0"
+gem "jekyll", "3.6.3"
 gem "jekyll-seo-tag", "2.1.0"
 gem "rouge", "1.11.1"
 gem 'jekyll-redirect-from', "0.12.1"
