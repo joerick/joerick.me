@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>resolutionData</key>
+	<dict>
+		<key>sheetClusters</key>
+		<dict>
+			<key>2016-11-07-welcome-to-jekyll.markdown</key>
+			<dict>
+				<key>lastModification</key>
+				<real>520284191.98453999</real>
+				<key>version</key>
+				<dict>
+					<key>646457ab1c50ae948013b6a499e98c027e547985ac25af4eaa042a0048b54fc5</key>
+					<integer>2</integer>
+				</dict>
+			</dict>
+			<key>2017-03-08-little-printer.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>520284191.984541</real>
+				<key>version</key>
+				<dict>
+					<key>646457ab1c50ae948013b6a499e98c027e547985ac25af4eaa042a0048b54fc5</key>
+					<integer>2</integer>
+				</dict>
+			</dict>
+			<key>Python callback syntax.md</key>
+			<dict>
+				<key>lastModification</key>
+				<real>520284191.98453498</real>
+				<key>version</key>
+				<dict>
+					<key>646457ab1c50ae948013b6a499e98c027e547985ac25af4eaa042a0048b54fc5</key>
+					<integer>2</integer>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+	<key>sheetClusters</key>
+	<array>
+		<array>
+			<string>Python callback syntax.md</string>
+		</array>
+		<array>
+			<string>2016-11-07-welcome-to-jekyll.markdown</string>
+		</array>
+		<array>
+			<string>2017-03-08-little-printer.md</string>
+		</array>
+	</array>
+	<key>storeFormatVersion</key>
+	<integer>1</integer>
+	<key>versioning</key>
+	<dict>
+		<key>sheetClusters</key>
+		<dict>
+			<key>646457ab1c50ae948013b6a499e98c027e547985ac25af4eaa042a0048b54fc5</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+</dict>
+</plist>
