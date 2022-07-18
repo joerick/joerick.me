@@ -52,7 +52,7 @@
     <Window title="Photo"
             class="photo-window"
             :active="false">
-      <img class="mugshot" src="../assets/mug.png" style="">
+      <DitherImage class="mugshot" :imageSrc="require('../assets/mug.jpg')" />
     </Window>
 
     <Window title="Me"
@@ -137,8 +137,9 @@
   margin-top: 0;
 }
 
-img.mugshot {
+.mugshot {
   width: 100%;
+  padding-bottom: 100%;
 
   border: 1px solid white;
   display: block;

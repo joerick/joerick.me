@@ -54,7 +54,6 @@
 </template>
 
 <script>
-import ObserveSizeMixin from '../mixins/ObserveSizeMixin'
 import WindowArrow from '../components/WindowArrow.vue'
 
 export default {
@@ -68,7 +67,6 @@ export default {
       default: 'Window'
     },
   },
-  mixins: [ObserveSizeMixin],
   components: {
     WindowArrow,
   },
