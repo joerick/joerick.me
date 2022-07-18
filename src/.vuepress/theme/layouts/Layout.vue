@@ -8,7 +8,6 @@
 </template>
 
 <style scoped>
-@import '../assets/chicago-webfont/stylesheet.css';
 
 .theme-content {
   font-family: Helvetica, Arial, sans-serif;
@@ -38,14 +37,5 @@
 </style>
 
 <style>
-ul {
-  margin: 0.5em 0;
-  padding-left: 1em;
-}
-li {
-  margin: 0.5em 0;
-}
-p {
-  margin: 0.5em 0;
-}
+@import '../style.css';
 </style>

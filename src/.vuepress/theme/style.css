@@ -1,0 +1,33 @@
+@import './assets/chicago-webfont/stylesheet.css';
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+    margin: 0.5em 0;
+    padding-left: 1em;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: underline;
+}

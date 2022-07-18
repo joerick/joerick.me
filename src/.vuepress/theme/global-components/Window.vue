@@ -1,7 +1,7 @@
 <template>
   <div class="window">
     <div class="title-bar">
-      <svg class="title-bar-lines" width="100%" height="11" viewBox="0 0 6 11" preserveAspectRatio="none">
+      <svg v-if="active" class="title-bar-lines" width="100%" height="11" viewBox="0 0 6 11" preserveAspectRatio="none">
         <rect x="0" y="0" width="6" height="1" fill="black" />
         <rect x="0" y="2" width="6" height="1" fill="black" />
         <rect x="0" y="4" width="6" height="1" fill="black" />
@@ -9,12 +9,12 @@
         <rect x="0" y="8" width="6" height="1" fill="black" />
         <rect x="0" y="10" width="6" height="1" fill="black" />
       </svg>
-      <svg class="title-bar-left" width="13" height="11" viewBox="0 0 13 11">
+      <svg v-if="active" class="title-bar-left" width="13" height="11" viewBox="0 0 13 11">
         <rect x="0" y="0" width="13" height="11" fill="white" />
         <rect x="1" y="0" width="11" height="11" fill="black" />
         <rect x="2" y="1" width="9" height="9" fill="white" />
       </svg>
-      <svg class="title-bar-right" width="13" height="11" viewBox="0 0 13 11">
+      <svg v-if="active" class="title-bar-right" width="13" height="11" viewBox="0 0 13 11">
         <rect x="0" y="0" width="13" height="11" fill="white" />
         <rect x="1" y="0" width="11" height="11" fill="black" />
         <rect x="2" y="1" width="9" height="9" fill="white" />
@@ -59,6 +59,10 @@ import WindowArrow from '../components/WindowArrow.vue'
 
 export default {
   props: {
+    active: {
+      type: Boolean,
+      default: true,
+    },
     title: {
       type: String,
       default: 'Window'
@@ -79,8 +83,9 @@ export default {
   border: 1px solid black;
   background-color: white;
   box-shadow: 1px 1px 0 black;
-  padding: 15px;
   padding-top: 18px;
+  padding-right: 15px;
+  padding-bottom: 15px;
 }
 
 .title-bar {
@@ -135,7 +140,7 @@ export default {
   right: 0;
   top: 17px;
   bottom: 14px;
-  width: 14px;
+  width: 15px;
   background-color: white;
   border-left: 1px solid black;
 }
@@ -155,7 +160,7 @@ export default {
   left: -1px;
   right: 14px;
   bottom: 0;
-  height: 14px;
+  height: 15px;
   background-color: white;
   border-top: 1px solid black;
 }
