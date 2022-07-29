@@ -19,14 +19,18 @@ for (var i=0; i<256; i++) {
   lumB[i] = i*0.114;
 }
 
-export function colorDither(imageData, threshold, type){
+export function colorDither(imageData, threshold, type, ditheringLevels, exposureAdjust, contrastAdjust) {
 
   var imageDataLength = imageData.data.length;
+  ditheringLevels = ditheringLevels || 2;
+  exposureAdjust = exposureAdjust || 1;
+  contrastAdjust = contrastAdjust || 1;
 
   var w = imageData.width;
   var newPixel, err;
 
   for (var currentPixel = 0; currentPixel <= imageDataLength; currentPixel += 1) {
+    imageData.data[currentPixel] = ((imageData.data[currentPixel] - 127) * contrastAdjust + 127) * exposureAdjust;
 
     if (type === "none") {
       // No dithering
@@ -39,7 +43,7 @@ export function colorDither(imageData, threshold, type){
       imageData.data[currentPixel] = (map < threshold) ? 0 : 255;
     } else if (type === "floydsteinberg") {
       // Floyd–Steinberg dithering algorithm
-      newPixel = imageData.data[currentPixel] < 129 ? 0 : 255;
+      newPixel = Math.floor(imageData.data[currentPixel] / 255 * ditheringLevels) / ditheringLevels * 255;
       err = Math.floor((imageData.data[currentPixel] - newPixel) / 16);
       imageData.data[currentPixel] = newPixel;
 
@@ -47,9 +51,16 @@ export function colorDither(imageData, threshold, type){
       imageData.data[currentPixel + 4*w - 4 ] += err*3;
       imageData.data[currentPixel + 4*w     ] += err*5;
       imageData.data[currentPixel + 4*w + 4 ] += err*1;
-    } else {
+    } else if (type === "atkinson") {
       // Bill Atkinson's dithering algorithm
-      newPixel = imageData.data[currentPixel] < 129 ? 0 : 255;
+      if (ditheringLevels == 2) {
+        newPixel = imageData.data[currentPixel] < 129 ? 0 : 255;
+      } else if (ditheringLevels == 3 ){
+        newPixel = imageData.data[currentPixel] < 87 ? 0 : imageData.data[currentPixel] < 172 ? 128 : 255;
+      } else {
+          newPixel = Math.floor(imageData.data[currentPixel] / 255 * ditheringLevels) / ditheringLevels * 255;
+      }
+
       err = Math.floor((imageData.data[currentPixel] - newPixel) / 8);
       imageData.data[currentPixel] = newPixel;
 
@@ -59,6 +70,8 @@ export function colorDither(imageData, threshold, type){
       imageData.data[currentPixel + 4*w     ] += err;
       imageData.data[currentPixel + 4*w + 4 ] += err;
       imageData.data[currentPixel + 8*w     ] += err;
+    } else {
+        throw new Error('unknown algorithm');
     }
   }
 

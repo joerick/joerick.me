@@ -37,7 +37,11 @@ export default {
 
       ctx.drawImage(this.$refs.image, 0, 0, canvas.width, canvas.height)
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
-      colorDither(imageData, 127, "atkinson")
+      if (window.devicePixelRatio == 1) {
+        colorDither(imageData, 127, "atkinson", 3, 1.1, 1.1)
+      } else {
+        colorDither(imageData, 127, "atkinson", 2, 1)
+      }
       ctx.putImageData(imageData, 0, 0)
     }
   },

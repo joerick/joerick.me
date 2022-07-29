@@ -26,6 +26,7 @@
   background-image: url(../assets/bg-tile.png);
   background-size: 2px 2px;
   background-repeat: repeat;
+  background-position: top left;
 }
 .theme-content {
   position: absolute;

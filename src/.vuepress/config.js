@@ -17,6 +17,7 @@ module.exports = {
    */
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['link', { rel: 'shortcut icon', href: '/favicon.ico' }],
   ],
 
   /**
@@ -62,7 +63,5 @@ module.exports = {
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
   plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
   ]
 }
