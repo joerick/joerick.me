@@ -9,7 +9,7 @@
   </a>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   props: {
     iconSrc: {
@@ -40,7 +40,7 @@ a.icon {
 }
 .image {
   width: 32px;
-  height: 32px;
+
 }
 .name {
   text-align: center;

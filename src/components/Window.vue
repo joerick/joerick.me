@@ -69,9 +69,9 @@
 
 <script>
 import WindowArrow from '../components/WindowArrow.vue'
-import ObserveSizeMixin from '../../mixins/ObserveSizeMixin'
-import Vector from '../../lib/Vector.js'
-import {map} from '../../lib/util.js'
+import ObserveSizeMixin from './mixins/ObserveSizeMixin'
+import Vector from '../lib/Vector.ts'
+import {map} from '../lib/util.ts'
 
 const NUM_ANIMATION_BOXES = 13
 

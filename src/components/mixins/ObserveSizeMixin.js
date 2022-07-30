@@ -1,7 +1,6 @@
 import ResizeObserver from 'resize-observer-polyfill'
-import Vue from 'vue';
 
-export default Vue.extend({
+export default {
     data() {
         return {
             elementSize: {width: 0, height: 0},
@@ -27,4 +26,4 @@ export default Vue.extend({
             }
         }
     },
-})
+}

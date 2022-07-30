@@ -1,17 +1,28 @@
+<script setup lang="ts">
+import Window from './Window.vue'
+import Icon from './Icon.vue'
+import DitherImage from './DitherImage.vue'
+
+import githubIcon from '../assets/icons/github.png'
+import twitterIcon from '../assets/icons/twitter.png'
+import instagramIcon from '../assets/icons/instagram.png'
+import mugshot from '../assets/mug.jpg'
+</script>
+
 <template>
   <div class="index">
     <div class="bottom-left-icons">
-      <Icon :iconSrc="require('../assets/icons/github.png')"
+      <Icon :iconSrc="githubIcon"
             name="GitHub"
             class="icon github"
             href="https://github.com/joerick/" />
 
-      <Icon :iconSrc="require('../assets/icons/twitter.png')"
+      <Icon :iconSrc="twitterIcon"
             name="Twitter"
             class="icon twitter"
             href="https://twitter.com/joerick/" />
 
-      <Icon :iconSrc="require('../assets/icons/instagram.png')"
+      <Icon :iconSrc="instagramIcon"
             name="Instagram"
             class="icon instagram"
             href="https://instagram.com/joerick/" />
@@ -52,7 +63,7 @@
     <Window title="Photo"
             class="photo-window"
             :active="false">
-      <DitherImage class="mugshot" :imageSrc="require('../assets/mug.jpg')" />
+      <DitherImage class="mugshot" :imageSrc="mugshot" />
     </Window>
 
     <Window title="Me"

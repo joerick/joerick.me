@@ -1,10 +1,5 @@
 <template>
-  <div class="theme-container">
-    <div class="bg"></div>
-    <div class="theme-content">
-      <Content />
-    </div>
-  </div>
+
 </template>
 
 <style scoped>
