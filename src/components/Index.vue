@@ -15,11 +15,13 @@ import mugshot from '../assets/mug.jpg'
 import { desktopWindow, windowController } from './models'
 import { onMounted } from 'vue'
 
-windowController.activeWindow = {id: 'Me', selectedIcon: null}
+const mainWindowModel = {id: 'Me', selectedIcon: null}
+windowController.activeWindow = mainWindowModel
+windowController.windowOrder = [mainWindowModel]
 </script>
 
 <template>
-  <div class="index" @click.prevent.stop="desktopWindow.selectedIcon = null">
+  <div class="index" @click.stop="desktopWindow.selectedIcon = null">
     <div class="bottom-left-icons">
       <Icon :iconSrc="githubIcon"
             name="GitHub"
@@ -93,10 +95,23 @@ windowController.activeWindow = {id: 'Me', selectedIcon: null}
         </ul>
       </div>
     </DesktopIconAndWindow>
+
+    <div class="scroll-end-marker"></div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.index {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  @media (max-width: 768px) {
+    overflow-y: auto;
+  }
+}
 .photo-window {
   position: absolute !important;
   top: 40px;
@@ -114,6 +129,13 @@ windowController.activeWindow = {id: 'Me', selectedIcon: null}
     )
   );
   width: 255px;
+
+  @media (max-width: 768px) {
+    top: 20px;
+    left: unset;
+    right: 10px;
+    max-width: 80%;
+  }
 }
 .me-window {
   position: absolute !important;
@@ -132,6 +154,12 @@ windowController.activeWindow = {id: 'Me', selectedIcon: null}
     )
   );
   width: 450px;
+  @media (max-width: 768px) {
+    top: 250px;
+    left: 20px;
+    width: 351px;
+    max-width: 90%;
+  }
 }
 .cv-window {
   position: absolute !important;
@@ -150,6 +178,12 @@ windowController.activeWindow = {id: 'Me', selectedIcon: null}
     )
   );
   width: 368px;
+  @media (max-width: 768px) {
+    max-width: 80%;
+    bottom: unset;
+    top: 580px;
+    left: 40px;
+  }
 }
 
 .me-padding {
@@ -192,24 +226,53 @@ windowController.activeWindow = {id: 'Me', selectedIcon: null}
       90px
     )
   );
+  @media (max-width: 768px) {
+    bottom: unset;
+    top: 880px;
+    left: 60px;
+    margin-bottom: 200px;
+    // right: 10px;
+  }
 }
 .icon.github {
   position: absolute;
   left: -25px;
   top: -26px;
-  /* transform: translate(-50%, -50%); */
+  @media (max-width: 768px) {
+    left: 0;
+    top: 0;
+  }
 }
 .icon.twitter {
   position: absolute;
   left: -19px;
   top: 26px;
-  /* transform: translate(-50%, -50%); */
+  @media (max-width: 768px) {
+    left: 100px;
+    top: 0;
+  }
 }
 .icon.instagram {
   position: absolute;
   left: 41px;
   top: 2px;
-  /* transform: translate(-50%, -50%); */
+  @media (max-width: 768px) {
+    left: 200px;
+    top: 0;
+  }
 }
+.scroll-end-marker {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 970px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+  }
+}
+
 
 </style>

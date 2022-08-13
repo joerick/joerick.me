@@ -1,5 +1,5 @@
 <template>
-  <component :is="href ? 'a' : 'span'" class="icon" :class="{selected, open}" :href="href" @click="click">
+  <component :is="href ? 'a' : 'a'" class="icon" :class="{selected, open}" :href="href" @click="click">
     <img :src="iconSrc" class="image">
     <div class="name">
       <span class="bg">
@@ -113,6 +113,7 @@ a.icon {
 .name {
   text-align: center;
   font-size: 11px;
+  user-select: none;
 }
 .name span.bg {
   background: white;
