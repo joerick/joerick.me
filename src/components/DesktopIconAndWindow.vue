@@ -13,6 +13,11 @@ const props = defineProps<{
   containingWindow: WindowModel
 }>()
 
+const windowModel = computed<WindowModel>(() => ({
+  id: props.name,
+  selectedIcon: null,
+}))
+
 const NUM_ANIMATION_BOXES = 13
 const openAnimationProgress = ref(1)
 const iconOffset = ref({x: 0, y: 0})
@@ -21,6 +26,23 @@ const windowElement = ref<HTMLElement>()
 const windowSize = useObserveSize(windowElement)
 const iconSelected = computed(() => props.containingWindow.selectedIcon?.id === props.name)
 const iconOpen = computed(() => openAnimationProgress.value > 0)
+const windowActive = computed(() => windowController.activeWindow.id === windowModel.value.id)
+const windowIndex = computed(() => {
+  const idx = windowController.windowOrder.findIndex(w => w.id === windowModel.value.id)
+  if (idx === -1) {
+    return null
+  }
+  return idx
+})
+
+function makeWindowActive() {
+  windowController.activeWindow = windowModel.value
+  // remove self from windowOrder first
+  windowController.windowOrder = windowController.windowOrder.filter(w => w.id !== windowModel.value.id)
+  // then add self to the end
+  windowController.windowOrder.push(windowModel.value)
+}
+
 
 function openAnimationBoxStyle(box: number): StyleValue {
   let p = box / (NUM_ANIMATION_BOXES - 1)
@@ -77,10 +99,6 @@ function selectIcon() {
   props.containingWindow.selectedIcon = {id: props.name}
 }
 
-function selectWindow() {
-  windowController.selectedWindow = {id: props.name, selectedIcon: null}
-}
-
 function windowClosePressed() {
   animateClose()
 }
@@ -113,6 +131,7 @@ function animateOpen() {
   openAnimationTask.value?.cancel()
   openAnimationTask.value = new CancellableTask(async task => {
     selectIcon()
+    makeWindowActive()
 
     while (!task.isCancelled) {
       await task.nextAnimationFrame()
@@ -137,7 +156,7 @@ function animateOpen() {
           @mousedown.prevent.stop="selectIcon"
           @click.stop.prevent="animateOpen" />
 
-    <div class="window-container" ref="windowElement">
+    <div class="window-container" ref="windowElement" @mousedown.capture="makeWindowActive">
       <div class="open-animation">
         <template v-for="i in NUM_ANIMATION_BOXES" :key="i">
           <div class="outline-box" :style="openAnimationBoxStyle(i-1)"></div>
@@ -146,6 +165,7 @@ function animateOpen() {
       <Window class="window"
               :title="props.name"
               :style="windowStyle()"
+              :active="windowActive"
               @title-bar-mousedown="titleBarMouseDown"
               @close="windowClosePressed()">
         <slot />
@@ -159,6 +179,7 @@ function animateOpen() {
 .window-container {
   position: relative;
   pointer-events: none;
+  z-index: v-bind('windowIndex == null ? "auto" : windowIndex');
 }
 .open-animation {
   position: absolute;

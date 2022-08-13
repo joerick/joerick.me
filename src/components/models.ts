@@ -1,7 +1,7 @@
 import { reactive } from "vue"
 
 export interface WindowControllerModel {
-    selectedWindow: WindowModel|null
+    activeWindow: WindowModel|null
     windowOrder: WindowModel[]
 }
 
@@ -19,6 +19,6 @@ export const desktopWindow = reactive<WindowModel>({
     selectedIcon: null
 })
 export const windowController = reactive<WindowControllerModel>({
-    selectedWindow: null,
+    activeWindow: desktopWindow,
     windowOrder: [desktopWindow]
 })

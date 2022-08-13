@@ -12,7 +12,10 @@ import docIcon from '../assets/icons/doc.png'
 import photoIcon from '../assets/icons/photo.png'
 import mugshot from '../assets/mug.jpg'
 
-import { desktopWindow } from './models'
+import { desktopWindow, windowController } from './models'
+import { onMounted } from 'vue'
+
+windowController.activeWindow = {id: 'Me', selectedIcon: null}
 </script>
 
 <template>
@@ -66,11 +69,12 @@ import { desktopWindow } from './models'
       </div>
     </Window>
 
-    <Window title="Photo"
-            class="photo-window"
-            :active="false">
+    <DesktopIconAndWindow name="Photo"
+                          class="photo-window"
+                          :containingWindow="desktopWindow"
+                          :iconSrc="photoIcon">
       <DitherImage class="mugshot" :imageSrc="mugshot" />
-    </Window>
+    </DesktopIconAndWindow>
 
     <DesktopIconAndWindow name="Me"
                           :iconSrc="waveIcon"
