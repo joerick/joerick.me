@@ -2,6 +2,7 @@ import { reactive } from "vue"
 
 export interface WindowControllerModel {
     selectedWindow: WindowModel|null
+    windowOrder: WindowModel[]
 }
 
 export interface WindowModel {
@@ -13,5 +14,11 @@ export interface IconModel {
     id: string
 }
 
-export const desktopWindow = reactive<WindowModel>({id: 'desktop', selectedIcon: null})
-export const windowController = reactive<WindowControllerModel>({selectedWindow: null})
+export const desktopWindow = reactive<WindowModel>({
+    id: 'desktop',
+    selectedIcon: null
+})
+export const windowController = reactive<WindowControllerModel>({
+    selectedWindow: null,
+    windowOrder: [desktopWindow]
+})

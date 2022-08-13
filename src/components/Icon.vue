@@ -1,5 +1,5 @@
 <template>
-  <a class="icon" :class="{selected, open}" :href="href">
+  <a class="icon" :class="{selected, open}" :href="href" @click="click">
     <img :src="iconSrc" class="image">
     <div class="name">
       <span class="bg">
@@ -78,6 +78,14 @@ export default {
     return {
       openFileTile,
       openFileTileDeselected,
+    }
+  },
+  methods: {
+    click(event) {
+      if (this.href) {
+        event.stopPropagation()
+      }
+      this.$emit('click', event)
     }
   },
 }
