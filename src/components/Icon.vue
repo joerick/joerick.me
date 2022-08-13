@@ -1,5 +1,5 @@
 <template>
-  <a class="icon" :class="{selected, open}" :href="href" @click="click">
+  <component :is="href ? 'a' : 'span'" class="icon" :class="{selected, open}" :href="href" @click="click">
     <img :src="iconSrc" class="image">
     <div class="name">
       <span class="bg">
@@ -42,7 +42,7 @@
         </filter>
       </defs>
     </svg>
-  </a>
+  </component>
 </template>
 
 <script lang="ts">
@@ -92,7 +92,7 @@ export default {
 </script>
 
 <style scoped>
-a.icon {
+.icon {
   display: inline-flex;
   flex-direction: column;
   align-items: center;

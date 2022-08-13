@@ -37,9 +37,10 @@ windowController.activeWindow = {id: 'Me', selectedIcon: null}
             href="https://instagram.com/joerick/" />
     </div>
 
-    <Window title="Curriculum Vitae"
-            class="cv-window"
-            :active="false">
+    <DesktopIconAndWindow name="Curriculum Vitae"
+                          class="cv-window"
+                          :iconSrc="docIcon"
+                          :containingWindow="desktopWindow">
       <div class="cv-padding">
         <div class="cv-table">
           <div class="date">2017-now</div>
@@ -67,7 +68,7 @@ windowController.activeWindow = {id: 'Me', selectedIcon: null}
           </div>
         </div>
       </div>
-    </Window>
+    </DesktopIconAndWindow>
 
     <DesktopIconAndWindow name="Photo"
                           class="photo-window"
