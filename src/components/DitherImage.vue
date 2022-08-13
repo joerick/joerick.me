@@ -5,9 +5,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import ObserveSizeMixin from './mixins/ObserveSizeMixin'
-import {colorDither} from './dithering'
+import {colorDither, colorDitherAtkinson16Bit} from './dithering'
 
 export default {
   props: {
@@ -38,7 +38,7 @@ export default {
       ctx.drawImage(this.$refs.image, 0, 0, canvas.width, canvas.height)
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
       if (window.devicePixelRatio == 1) {
-        colorDither(imageData, 127, "atkinson", 2, 1.1, 1)
+        colorDitherAtkinson16Bit(imageData, {exposureAdjust: 1.2, contrastAdjust: 1.1})
       } else {
         colorDither(imageData, 127, "atkinson", 2, 1)
       }

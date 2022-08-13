@@ -1,16 +1,22 @@
 <script setup lang="ts">
 import Window from './Window.vue'
 import Icon from './Icon.vue'
+import DesktopIconAndWindow from './DesktopIconAndWindow.vue'
 import DitherImage from './DitherImage.vue'
 
 import githubIcon from '../assets/icons/github.png'
 import twitterIcon from '../assets/icons/twitter.png'
 import instagramIcon from '../assets/icons/instagram.png'
+import waveIcon from '../assets/icons/wave.png'
+import docIcon from '../assets/icons/doc.png'
+import photoIcon from '../assets/icons/photo.png'
 import mugshot from '../assets/mug.jpg'
+
+import { desktopWindow } from './models'
 </script>
 
 <template>
-  <div class="index">
+  <div class="index" @click.prevent.stop="desktopWindow.selectedIcon = null">
     <div class="bottom-left-icons">
       <Icon :iconSrc="githubIcon"
             name="GitHub"
@@ -66,8 +72,10 @@ import mugshot from '../assets/mug.jpg'
       <DitherImage class="mugshot" :imageSrc="mugshot" />
     </Window>
 
-    <Window title="Me"
-            class="me-window">
+    <DesktopIconAndWindow name="Me"
+                          :iconSrc="waveIcon"
+                          :containingWindow="desktopWindow"
+                          class="me-window">
       <div class="me-padding">
         <h2>Hi! I'm Joe.</h2>
         <p style="margin-bottom: 0.7em">
@@ -79,7 +87,7 @@ import mugshot from '../assets/mug.jpg'
           <li>I play music every now and again.</li>
         </ul>
       </div>
-    </Window>
+    </DesktopIconAndWindow>
   </div>
 </template>
 
@@ -184,19 +192,19 @@ import mugshot from '../assets/mug.jpg'
   position: absolute;
   left: -25px;
   top: -26px;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
 }
 .icon.twitter {
   position: absolute;
   left: -19px;
   top: 26px;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
 }
 .icon.instagram {
   position: absolute;
   left: 41px;
   top: 2px;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
 }
 
 </style>
