@@ -96,6 +96,7 @@ export default {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  width: 32px;
 }
 a.icon {
   text-decoration: none;
@@ -116,6 +117,7 @@ a.icon {
 .name span.bg {
   background: white;
   padding: 0 2px;
+  white-space: nowrap;
 }
 .selected .name span.bg {
   background: black;

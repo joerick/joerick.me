@@ -21,6 +21,8 @@ const windowModel = computed<WindowModel>(() => ({
 const NUM_ANIMATION_BOXES = 13
 const openAnimationProgress = ref(1)
 const iconOffset = ref({x: 0, y: 0})
+const windowOffset = ref({x: 0, y: 0})
+const activeDragWindowOffset = ref<Vector|null>(null)
 const openAnimationTask = ref<CancellableTask|null>(null)
 const windowElement = ref<HTMLElement>()
 const windowSize = useObserveSize(windowElement)
@@ -51,7 +53,7 @@ function openAnimationBoxStyle(box: number): StyleValue {
     return {}
   const windowCenter = {x: windowSize.value.width / 2, y: windowSize.value.height / 2}
   const startOffset = Vector.add(windowCenter, iconOffset.value)
-  const endOffset = windowCenter
+  const endOffset = Vector.add(windowCenter, windowOffset.value)
 
   const offset = Vector.interp(startOffset, endOffset, p)
   const size = {
@@ -65,7 +67,11 @@ function openAnimationBoxStyle(box: number): StyleValue {
     height: size.height,
   }
 
-  const visible = openAnimationProgress.value > 0 && Math.abs(p - openAnimationProgress.value) < 0.2
+  const visible = (
+    openAnimationProgress.value > 0
+    && openAnimationProgress.value < 1
+    && Math.abs(p - openAnimationProgress.value) < 0.2
+  )
 
   return {
     position: 'absolute',
@@ -90,8 +96,31 @@ function windowStyle(): StyleValue {
   }
 }
 
+// title bar dragging
+let mouseDownOffset: Vector|null = null
 function titleBarMouseDown(event) {
+  mouseDownOffset = {x: event.clientX, y: event.clientY}
+  activeDragWindowOffset.value = {x: 0, y: 0}
 
+  window.addEventListener('mousemove', titleBarMouseMove)
+  window.addEventListener('mouseup', titleBarMouseUp)
+}
+function titleBarMouseMove(event) {
+  if (mouseDownOffset == null) {
+    return
+  }
+  const offset = {x: event.clientX - mouseDownOffset.x, y: event.clientY - mouseDownOffset.y}
+  activeDragWindowOffset.value = offset
+}
+function titleBarMouseUp(event) {
+  if (mouseDownOffset == null) {
+    return
+  }
+  window.removeEventListener('mousemove', titleBarMouseMove)
+  window.removeEventListener('mouseup', titleBarMouseUp)
+  mouseDownOffset = null
+  windowOffset.value = Vector.add(windowOffset.value, activeDragWindowOffset.value)
+  activeDragWindowOffset.value = null
 }
 
 function selectIcon() {
@@ -101,6 +130,11 @@ function selectIcon() {
 
 function windowClosePressed() {
   animateClose()
+}
+
+function iconClicked() {
+  if (iconOpen.value) return
+  animateOpen()
 }
 
 function animateClose() {
@@ -154,14 +188,14 @@ function animateOpen() {
           :selected="iconSelected"
           :open="iconOpen"
           @mousedown.prevent.stop="selectIcon"
-          @click.stop.prevent="animateOpen" />
+          @click.stop.prevent="iconClicked" />
 
+    <div class="open-animation">
+      <template v-for="i in NUM_ANIMATION_BOXES" :key="i">
+        <div class="outline-box" :style="openAnimationBoxStyle(i-1)"></div>
+      </template>
+    </div>
     <div class="window-container" ref="windowElement" @mousedown.capture="makeWindowActive">
-      <div class="open-animation">
-        <template v-for="i in NUM_ANIMATION_BOXES" :key="i">
-          <div class="outline-box" :style="openAnimationBoxStyle(i-1)"></div>
-        </template>
-      </div>
       <Window class="window"
               :title="props.name"
               :style="windowStyle()"
@@ -170,15 +204,20 @@ function animateOpen() {
               @close="windowClosePressed()">
         <slot />
       </Window>
+      <div class="window-move-indicator" v-if="activeDragWindowOffset"></div>
     </div>
   </div>
 
 </template>
 
 <style>
+.icon-and-window {
+  pointer-events: none;
+}
 .window-container {
   position: relative;
-  pointer-events: none;
+  top: v-bind('`${windowOffset.y}px`');
+  left: v-bind('`${windowOffset.x}px`');
   z-index: v-bind('windowIndex == null ? "auto" : windowIndex');
 }
 .open-animation {
@@ -194,8 +233,19 @@ function animateOpen() {
   /* background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='3' stroke-dasharray='1%2c1' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e"); */
 }
 .icon {
+  pointer-events: all;
   position: absolute;
   left: calc(50% - 16px);
   top: calc(50% - 16px);
+}
+.window-move-indicator {
+  position: absolute;
+  top: v-bind('`${activeDragWindowOffset?.y}px`');
+  left: v-bind('`${activeDragWindowOffset?.x}px`');
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border: 1px solid black;
+  display: v-bind('activeDragWindowOffset == null ? "none" : "block"');
 }
 </style>

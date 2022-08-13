@@ -182,14 +182,14 @@ windowController.activeWindow = {id: 'Me', selectedIcon: null}
   left: 83px;
   left: calc(
     max(
-      50vw - 401px,
+      50vw - 370px,
       60px
     )
   );
   bottom: calc(
     max(
-      50vh - 198px,
-      60px
+      50vh - 168px,
+      90px
     )
   );
 }
