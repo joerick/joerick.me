@@ -1,6 +1,6 @@
 ---
 layout: /src/layouts/Post.astro
-title: "Site redesign"
+title: 2022 Site redesign
 date: 2022-08-14T00:00:00.000Z
 ---
 

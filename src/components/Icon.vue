@@ -72,7 +72,12 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    }
+    },
+    staticLayout: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -96,7 +101,7 @@ export default {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  width: 32px;
+  width: v-bind('staticLayout ? "auto" : "32px"');
 }
 a.icon {
   text-decoration: none;
@@ -118,7 +123,7 @@ a.icon {
 .name span.bg {
   background: white;
   padding: 0 2px;
-  white-space: nowrap;
+  white-space: v-bind('staticLayout ? "normal" : "nowrap"');
 }
 .selected .name span.bg {
   background: black;

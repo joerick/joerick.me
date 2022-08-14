@@ -10,14 +10,25 @@ import instagramIcon from '../assets/icons/instagram.png'
 import waveIcon from '../assets/icons/wave.png'
 import docIcon from '../assets/icons/doc.png'
 import photoIcon from '../assets/icons/photo.png'
+import folderIcon from '../assets/icons/folder.png'
 import mugshot from '../assets/mug.jpg'
 
 import { desktopWindow, windowController } from './models'
 import { onMounted } from 'vue'
 
+export interface Props {
+  posts: {
+    name: string
+    url: string
+  }[]
+}
+
+const props = defineProps<Props>()
+
 const mainWindowModel = {id: 'Me', selectedIcon: null}
 windowController.activeWindow = mainWindowModel
 windowController.windowOrder = [mainWindowModel]
+
 </script>
 
 <template>
@@ -39,6 +50,23 @@ windowController.windowOrder = [mainWindowModel]
             href="https://instagram.com/joerick/" />
     </div>
 
+
+    <DesktopIconAndWindow name="Posts"
+                          class="posts-window"
+                          :containingWindow="desktopWindow"
+                          :iconSrc="folderIcon"
+                          :initialIconOffset="{x: 0, y: 50}"
+                          :initialWindowOpen="false">
+      <div class="folder-contents">
+        <Icon v-for="post in props.posts"
+              :iconSrc="docIcon"
+              :name="post.name"
+              class="icon"
+              :href="post.url"
+              :staticLayout="true" />
+      </div>
+    </DesktopIconAndWindow>
+
     <DesktopIconAndWindow name="Curriculum Vitae"
                           class="cv-window"
                           :iconSrc="docIcon"
@@ -55,6 +83,12 @@ windowController.windowOrder = [mainWindowModel]
           <div class="what">
             Founded and ran <a href="https://getmixim.com">Mixim</a> - a
             software startup building collaboration software for musicians
+          </div>
+
+          <div class="date">2013-2018</div>
+          <div class="what">
+            Software boffin for <a href="https://tingbot.com">Tingbot</a>
+            - a Raspberry Pi device that makes writing apps fun and creative
           </div>
 
           <div class="date">2010-2014</div>
@@ -186,6 +220,45 @@ windowController.windowOrder = [mainWindowModel]
   }
 }
 
+.posts-window {
+  position: absolute !important;
+  bottom: calc(
+    max(
+      50vh - 196px,
+      20px
+    )
+  );
+  left: calc(
+    min(
+      50vw - 255px - 20px,
+      100vw - 255px - 20px
+    )
+  );
+  width: 400px;
+  @media (max-width: 768px) {
+    top: 960px;
+    left: 50%;
+    bottom: unset;
+    transform: translateX(-50%);
+    max-width: 90%;
+  }
+}
+
+.folder-contents {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  padding: 10px;
+
+  @media (max-width: 768px) {
+    // top: 20px;
+    // left: unset;
+    // right: 10px;
+    grid-template-columns: 1fr 1fr;
+    max-width: 80%;
+  }
+}
+
 .me-padding {
   padding: 12px 12px;
   padding-right: 19px;
@@ -228,7 +301,7 @@ windowController.windowOrder = [mainWindowModel]
   );
   @media (max-width: 768px) {
     bottom: unset;
-    top: 880px;
+    top: 980px;
     left: 60px;
     margin-bottom: 200px;
     // right: 10px;
@@ -267,7 +340,7 @@ windowController.windowOrder = [mainWindowModel]
   @media (max-width: 768px) {
     display: block;
     position: absolute;
-    top: 970px;
+    top: 1200px;
     left: 0;
     width: 10px;
     height: 10px;

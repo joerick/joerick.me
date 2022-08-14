@@ -28,7 +28,7 @@ function windowClosePressed() {
   min-height: 100%;
 
   @media (max-width: 768px) {
-    padding: 2em 1em;
+    padding: 0.3em 0.3em;
   }
 }
 .post-bg {
@@ -47,5 +47,8 @@ function windowClosePressed() {
   padding: 40px 20px;
   max-width: 700px;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    padding:10px 15px;
+  }
 }
 </style>

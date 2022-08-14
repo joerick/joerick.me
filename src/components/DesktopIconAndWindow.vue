@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, StyleValue } from 'vue';
+import { computed, onBeforeMount, onMounted, onServerPrefetch, ref, StyleValue } from 'vue';
 import { CancellableTask, map } from '../lib/util';
 import Vector from '../lib/Vector';
 import Window from './Window.vue';
@@ -7,11 +7,18 @@ import Icon from './Icon.vue';
 import useObserveSize from './mixins/useObserveSize';
 import { windowController, WindowModel } from './models';
 
-const props = defineProps<{
+interface Props {
   iconSrc: string
   name: string
   containingWindow: WindowModel
-}>()
+  initialIconOffset: Vector
+  initialWindowOpen: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  initialIconOffset: () => ({x: 0, y: 0}),
+  initialWindowOpen: true,
+})
 
 const windowModel = computed<WindowModel>(() => ({
   id: props.name,
@@ -20,7 +27,14 @@ const windowModel = computed<WindowModel>(() => ({
 
 const NUM_ANIMATION_BOXES = 13
 const openAnimationProgress = ref(1)
+if (props.initialWindowOpen === false) {
+  openAnimationProgress.value = 0
+}
+
 const iconOffset = ref({x: 0, y: 0})
+if (props.initialIconOffset) {
+  iconOffset.value = props.initialIconOffset
+}
 const windowOffset = ref({x: 0, y: 0})
 const activeDragWindowOffset = ref<Vector|null>(null)
 const openAnimationTask = ref<CancellableTask|null>(null)
@@ -210,7 +224,7 @@ function animateOpen() {
 
 </template>
 
-<style>
+<style scoped>
 .icon-and-window {
   pointer-events: none;
 }
@@ -237,6 +251,7 @@ function animateOpen() {
   position: absolute;
   left: calc(50% - 16px);
   top: calc(50% - 16px);
+  transform: v-bind('`translate(${iconOffset.x}px, ${iconOffset.y}px)`');
 }
 .window-move-indicator {
   position: absolute;
