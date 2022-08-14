@@ -2,6 +2,10 @@
 layout: /src/layouts/Post.astro
 title: 2022 Site redesign
 date: 2022-08-14T00:00:00.000Z
+description: >
+    It is a truth universally acknowledged, that a developer in possession of a
+    good domain, must be in want of a website.
+image: /img/site-redesign/system-3-welcome.png
 ---
 
 # I made a new website!

@@ -11,6 +11,21 @@ export interface Props {
 }
 
 const { title, content } = Astro.props as Props;
+let openGraph = undefined
+if (content?.image) {
+    openGraph = {
+        basic: {
+            title,
+            type: "website",
+            image: content.image,
+        },
+        optional: {
+            description: content?.description,
+        },
+    };
+} else {
+    openGraph
+}
 ---
 
 <!DOCTYPE html>
@@ -19,7 +34,7 @@ const { title, content } = Astro.props as Props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <SEO title={title} description={content?.description} image={content?.image} />
+        <SEO title={title} description={content?.description} image={content?.image} openGraph={openGraph} />
 	</head>
 	<body>
       <div class="theme-container">
