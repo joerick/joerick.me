@@ -1,9 +1,16 @@
 ---
+import { SEO } from "astro-seo";
+
 export interface Props {
 	title: string;
+    content?: {
+        title?: string;
+        description?: string;
+        image?: string;
+    }
 }
 
-const { title } = Astro.props as Props;
+const { title, content } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -12,7 +19,7 @@ const { title } = Astro.props as Props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<title>{title}</title>
+        <SEO title={title} description={content?.description} image={content?.image} />
 	</head>
 	<body>
       <div class="theme-container">
@@ -24,7 +31,7 @@ const { title } = Astro.props as Props;
 	</body>
 </html>
 
-<style is:global>
+<style is:global lang="scss">
 @import '../assets/chicago-webfont/stylesheet.css';
 
 * {
@@ -32,12 +39,31 @@ const { title } = Astro.props as Props;
 }
 
 html, body {
-    overflow: hidden;
 }
 
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+  background-repeat: repeat;
+  background-position: top left;
+
+  background-image: url(../assets/bg-tile-1x.png);
+  background-size: 8px 8px;
+  background-attachment: fixed;
+
+  @media only screen and (-moz-min-device-pixel-ratio: 2),
+         only screen and (-o-min-device-pixel-ratio: 2/1),
+         only screen and (-webkit-min-device-pixel-ratio: 2),
+         only screen and (min-device-pixel-ratio: 2) {
+    background-image: url(../assets/bg-tile-2x.png);
+  }
+  @media only screen and (-moz-min-device-pixel-ratio: 3),
+         only screen and (-o-min-device-pixel-ratio: 3/1),
+         only screen and (-webkit-min-device-pixel-ratio: 3),
+         only screen and (min-device-pixel-ratio: 3) {
+    background-image: url(../assets/bg-tile-3x.png);
+  }
 }
 
 ul {
@@ -75,24 +101,6 @@ a:visited {
   right: 0;
   bottom: 0;
 
-  background-repeat: repeat;
-  background-position: top left;
-
-  background-image: url(../assets/bg-tile-1x.png);
-  background-size: 8px 8px;
-
-  @media only screen and (-moz-min-device-pixel-ratio: 2),
-         only screen and (-o-min-device-pixel-ratio: 2/1),
-         only screen and (-webkit-min-device-pixel-ratio: 2),
-         only screen and (min-device-pixel-ratio: 2) {
-    background-image: url(../assets/bg-tile-2x.png);
-  }
-  @media only screen and (-moz-min-device-pixel-ratio: 3),
-         only screen and (-o-min-device-pixel-ratio: 3/1),
-         only screen and (-webkit-min-device-pixel-ratio: 3),
-         only screen and (min-device-pixel-ratio: 3) {
-    background-image: url(../assets/bg-tile-3x.png);
-  }
 }
 
 .theme-content {

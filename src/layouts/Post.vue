@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import Window from '../components/Window.vue'
-import PostBackground from './PostBackground.vue';
 const props = defineProps<{title: string}>()
 
 function windowClosePressed() {
@@ -9,33 +8,24 @@ function windowClosePressed() {
 </script>
 
 <template>
-  <div class="scroller">
-    <div class="scroller-contents">
-      <div class="post-bg"></div>
-      <Window class="window"
-              :title="props.title"
-              :active="true"
-              @close="windowClosePressed()">
-        <div class="content-padding">
-          <slot />
-        </div>
-      </Window>
-    </div>
+  <div class="post-container">
+    <div class="post-bg"></div>
+    <Window class="window"
+            :title="props.title"
+            :active="true"
+            @close="windowClosePressed()">
+      <div class="content-padding">
+        <slot />
+      </div>
+    </Window>
   </div>
 </template>
 
 <style scoped lang="scss">
-.scroller {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow-y: auto;
-}
-.scroller-contents {
+.post-container {
   position: relative;
   padding: 2vw;
+  min-height: 100%;
 
   @media (max-width: 768px) {
     padding: 2em 1em;

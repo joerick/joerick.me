@@ -1,9 +1,10 @@
 ---
 import Layout from './Layout.astro'
 import Post from './Post.vue'
+const { content } = Astro.props;
 const { title } = Astro.props.content;
 ---
-<Layout title={title}>
+<Layout title={title} content={content}>
     <Post title={title} client:idle>
         <div class="post-markdown">
             <slot />
@@ -81,6 +82,13 @@ const { title } = Astro.props.content;
         td {
             background-color: #f8f8f8;
         }
+    }
+
+    blockquote {
+        margin-left: 0;
+        padding-left: 1.8em;
+        border-left: 2px solid currentColor;
+        font-style: italic;
     }
 }
 </style>
