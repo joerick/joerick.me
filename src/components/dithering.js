@@ -3,7 +3,7 @@
 // Bayer parsed from http://en.wikipedia.org/wiki/Ordered_dithering
 // adapted from https://raw.githubusercontent.com/meemoo/meemooapp/main/src/nodes/image-monochrome-worker.js
 
-var bayerThresholdMap = [
+const bayerThresholdMap = [
     [15, 135, 45, 165],
     [195, 75, 225, 105],
     [60, 180, 30, 150],
