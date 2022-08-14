@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Index from "../components/Index.vue";
+import { Debug } from 'astro/components';
+
+interface Frontmatter {
+    title: string;
+    date?: string;
+}
+
+const postFiles = await Astro.glob<Frontmatter>('./posts/**/*.md');
+postFiles.sort((a, b) => (
+    new Date(b.frontmatter.date ?? 0).getTime()
+    - new Date(a.frontmatter.date ?? 0).getTime()
+));
+const posts = postFiles.map(p => ({
+    name: p.frontmatter.title,
+    url: p.url,
+    date: new Date(p.frontmatter.date),
+}))
+---
+
+<Layout title="joerick.me">
+    <Index client:load posts={posts} />
+    <!-- <Debug {postFiles} /> -->
+</Layout>
+
+<style>
+
+</style>

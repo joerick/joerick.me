@@ -1,0 +1,94 @@
+---
+import Layout from './Layout.astro'
+import Post from './Post.vue'
+const { content } = Astro.props;
+const { title } = Astro.props.content;
+---
+<Layout title={title} content={content}>
+    <Post title={title} client:idle>
+        <div class="post-markdown">
+            <slot />
+        </div>
+    </Post>
+</Layout>
+
+<style is:global lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import '../assets/redaction-webfont/stylesheet.css';
+
+.post-markdown {
+    font-family: Inter, sans-serif;
+    letter-spacing: -0.011em;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+
+    h1, h2, h3, h4, h5, h6 {
+        &:first-child {
+            margin-top: 0;
+        }
+        margin-top: 28px;
+        margin-bottom: 14px;
+        font-weight: 600;
+        letter-spacing: 0.008em;
+        font-family: "Redaction 35", serif;
+    }
+    h1 { font-size: 2.8em; }
+    h2 { font-size: 2em; }
+    h3 { font-size: 1.7em; }
+    h4 { font-size: 1.5em; }
+
+    @media (max-width: 768px) {
+        h1 { font-size: 2em; }
+        h2 { font-size: 1.7em; }
+        h3 { font-size: 1.4em; }
+        h4 { font-size: 1.3em; }
+        h5 { font-size: 1.1em; }
+        h6 { font-size: 0.9em; }
+    }
+
+    p {
+        margin: 1.5em 0;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    hr {
+        margin: 1.25em 0;
+        background-color: #eee;
+    }
+    a:link, a:visited {
+        color: #33f;
+    }
+    code {
+        background: #f4eff4;
+        padding: 0 0.4em;
+        border-radius: 0.2em;
+        font-size: 0.9em;
+    }
+
+    table {
+        max-width: 100%;
+        overflow-x: auto;
+        display: block;
+        @media (max-width: 768px) {
+            font-size: 0.9em;
+        }
+        th {
+            background-color: #eee;
+        }
+        td {
+            background-color: #f8f8f8;
+        }
+    }
+
+    blockquote {
+        margin-left: 0;
+        padding-left: 1.8em;
+        border-left: 2px solid currentColor;
+        font-style: italic;
+    }
+}
+</style>

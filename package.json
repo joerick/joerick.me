@@ -1,0 +1,21 @@
+{
+  "name": "@example/basics",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "@astrojs/vue": "^0.5.0",
+    "astro": "^1.0.0-rc.2",
+    "sass": "^1.54.4",
+    "vue": "^3.2.37"
+  },
+  "dependencies": {
+    "astro-seo": "^0.5.1",
+    "resize-observer-polyfill": "^1.5.1"
+  }
+}

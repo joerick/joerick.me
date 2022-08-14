@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Chicago';
+    src: url('Chicago.woff2') format('woff2'),
+        url('Chicago.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

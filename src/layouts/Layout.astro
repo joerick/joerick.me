@@ -1,0 +1,113 @@
+---
+import { SEO } from "astro-seo";
+
+export interface Props {
+	title: string;
+    content?: {
+        title?: string;
+        description?: string;
+        image?: string;
+    }
+}
+
+const { title, content } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <SEO title={title} description={content?.description} image={content?.image} />
+	</head>
+	<body>
+      <div class="theme-container">
+        <div class="bg"></div>
+        <div class="theme-content">
+          <slot />
+        </div>
+      </div>
+	</body>
+</html>
+
+<style is:global lang="scss">
+@import '../assets/chicago-webfont/stylesheet.css';
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+  background-repeat: repeat;
+  background-position: top left;
+
+  background-image: url(../assets/bg-tile-1x.png);
+  background-size: 8px 8px;
+  background-attachment: fixed;
+
+  @media only screen and (-moz-min-device-pixel-ratio: 2),
+         only screen and (-o-min-device-pixel-ratio: 2/1),
+         only screen and (-webkit-min-device-pixel-ratio: 2),
+         only screen and (min-device-pixel-ratio: 2) {
+    background-image: url(../assets/bg-tile-2x.png);
+  }
+  @media only screen and (-moz-min-device-pixel-ratio: 3),
+         only screen and (-o-min-device-pixel-ratio: 3/1),
+         only screen and (-webkit-min-device-pixel-ratio: 3),
+         only screen and (min-device-pixel-ratio: 3) {
+    background-image: url(../assets/bg-tile-3x.png);
+  }
+}
+
+ul {
+    margin: 0.5em 0;
+    padding-left: 1em;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+p {
+    margin: 0.5em 0;
+}
+
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: underline;
+}
+</style>
+
+<style lang="scss">
+.theme-content {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.038em;
+  color: black;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
+
+.theme-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+</style>
