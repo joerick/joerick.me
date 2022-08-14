@@ -3,6 +3,7 @@ layout: /src/layouts/Post.astro
 title: Launching Pyinstrument 2.0
 date: 2017-12-15 16:16:00
 categories: open-source
+image: /img/pyinstrument-vs-cprofile.png
 description: >
   Today I’m launching Pyinstrument 2.0. This update brings a few improvements, mostly by changing the underlying technology.
 ---
