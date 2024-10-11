@@ -87,7 +87,7 @@ After looking for solutions online, I came across this cyclic colormap - [RomaO]
 From there, I tweaked the colors, to increase the hue variation and reduce the brightness variation across the range.
 
 ![The 'pyinstrumentO' colormap](/img/pyinstrument-5/pyinstrument-colormap.png)
-*The colormap I ended up with, arrived at after some trial and error. It does suffer aesthetically compared to the original, but it gives better definition to the categories.*
+*The colormap I ended up with, after some trial and error. It doesn't look as good aesthetically as the original, but it gives better definition to the categories.*
 
 Now, I needed an algorithm to choose the colors. I devised a system that would sort the needed colors by frequency of use, and then choose colors so the most frequently used colors were the furthest apart.
 
