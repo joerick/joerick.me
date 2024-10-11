@@ -1,5 +1,6 @@
 ---
 import { SEO } from "astro-seo";
+import MugshotImage from "../assets/mug.jpg";
 
 export interface Props {
 	title: string;
@@ -7,25 +8,32 @@ export interface Props {
         title?: string;
         description?: string;
         image?: string;
+        imageAlt?: string;
     }
 }
 
-const { title, content } = Astro.props as Props;
+let { title, content } = Astro.props as Props;
 let openGraph = undefined
-if (content?.image) {
-    openGraph = {
-        basic: {
-            title,
-            type: "website",
-            image: content.image,
-        },
-        optional: {
-            description: content?.description,
-        },
-    };
-} else {
-    openGraph
+if (!content) {
+    content = {
+        title: title ?? "joerick.me",
+        description: "",
+        image: MugshotImage,
+    }
 }
+openGraph = {
+    basic: {
+        title,
+        type: "website",
+        image: content.image || MugshotImage,
+    },
+    optional: {
+        description: content.description,
+    },
+    image: {
+        alt: content.imageAlt ?? title,
+    }
+};
 ---
 
 <!DOCTYPE html>

@@ -1,15 +1,16 @@
 ---
+
 import Layout from './Layout.astro'
-import Post from './Post.vue'
+import PostVue from './Post.vue'
 const { content } = Astro.props;
 const { title } = Astro.props.content;
 ---
 <Layout title={title} content={content}>
-    <Post title={title} client:idle>
+    <PostVue title={title} client:idle>
         <div class="post-markdown">
             <slot />
         </div>
-    </Post>
+    </PostVue>
 </Layout>
 
 <style is:global lang="scss">
@@ -49,10 +50,17 @@ const { title } = Astro.props.content;
 
     p {
         margin: 1.5em 0;
+        margin-top: 0.5em
     }
 
-    img {
+    img, video {
         max-width: 100%;
+        & + em {
+            display: block;
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+        }
     }
 
     hr {
@@ -62,11 +70,14 @@ const { title } = Astro.props.content;
     a:link, a:visited {
         color: #33f;
     }
-    code {
+    :not(pre) > code {
         background: #f4eff4;
         padding: 0 0.4em;
         border-radius: 0.2em;
         font-size: 0.9em;
+    }
+    pre {
+        padding: 5px;
     }
 
     table {
