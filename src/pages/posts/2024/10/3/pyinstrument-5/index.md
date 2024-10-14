@@ -115,4 +115,4 @@ $ pip install -U pyinstrument
 
 And then run a script using `pyinstrument -r html` where you'd previously do `python`.
 
-Let me know what you think on [Mastodon](https://fosstodon.org/@joerick), [Reddit](https://www.reddit.com/r/Python/) or [Github](https://github.com/joerick/pyinstrument).
+Let me know what you think on [Mastodon](https://fosstodon.org/@joerick), [Reddit](https://www.reddit.com/r/Python/comments/1g1az6i/pyinstrument_v50_flamegraphs_for_python/) or [Github](https://github.com/joerick/pyinstrument).
